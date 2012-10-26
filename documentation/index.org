@@ -1,0 +1,12 @@
+#+title: Documentation Index
+
+- [[file:general.org][General notes]]
+- [[file:definitions.org][Definitions and conventions]]
+- [[file:numerical-lisp-library-and-package.org][NL library and package]]
+- [[file:vectors%2Barrays.org][Vectors and arrays]]
+- [[file:numerical-functions.org][Numerical functions]] both existing CL and new
+- [[file:flow-control.org][Flow control]] functions and macros
+- [[file:mapping-functions%2Bmacros.org][Iterating over vectors and arrays]]
+- [[file:visualization.org][Data visualization]]
+- [[file:tex-backend.org][TeX back-end]]
+- [[file:array-io.org][Array I/O]]

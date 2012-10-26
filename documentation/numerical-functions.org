@@ -1,0 +1,24 @@
+#+title: Numerical functions
+
+*** Re-definitions of existing common lisp functions and macros
+
+    All math functions listed in CLHS-12 accept numeric arrays as
+    arguments.  The arrays have to be congruent.  Then the functions
+    are performing a mapping of the function over consecutive array
+    elements.
+
+    The functions can also accept a mixture of arrays and scalars.  In
+    that case during the mapping, the scalar arguments always provide
+    the same value.
+
+** Numerical analysis routines
+   NL provides a CL interface to many numerical analysis operations.
+   These operations are actually done by external libraries, such as
+   GSLL, LAPACK or others.
+
+   The goal is to create a unified interface, but at the same time
+   give the user the possibility to set a default library, or
+   directly call a specific library routine.
+
+   This part is probably very complex, as we are striving for both
+   unity and flexibility.

@@ -1,0 +1,54 @@
+#+title: numerical-lisp
+
+* Aim
+  
+  A specification for a common-lisp-based language for numerical
+  simulation, computations, analysis, and visualization.  Very little
+  initial coding.
+
+  This environment will redefine (shadow) some of CL's symbols - thus
+  the name Numerical Lisp.  However, the shaddowed symbols will always
+  be accessible.
+
+  It will also define new functionality for numerical simulation,
+  analysis and visualization.
+
+  This project will initially consists of my notes on how to proceed.
+  These notes should prompt others to think about these issues.
+  Eventually we will move on to coding.
+
+  Currently, all the action is in the files in the ~documentation~
+  folder.  The files are currently text files in Emacs' org-mode.
+  Eventually, I will place publish the org-mode files as html files
+  and place them into the documentation directory.
+
+* Project philosophy
+
+  NL will also massively study and borrow from R, Matlab, IDL,
+  Mathematica, Macsyma, Fortress, and others.  However, it will always
+  remain a lisp language.
+  
+  To a some extent we will be defining a new domain specific language:
+  data structures, control structures, and (to a much, much lesser
+  extent) syntax.  With that in mind, should we consult lisp language
+  gurus (Steele, Pitman, others)?
+
+  *Note* NL will still have the flavor of CL.
+
+* Project management
+
+  I am currently the only contributor.  As the need and opportunity
+  arises, I will allow others to become contributors as well.
+
+  It is possible that this github project will terminate, and/or be
+  handed over to someone that can put it more effort and energy into
+  it.
+
+* History
+
+  I started this project based on recent discussions on Common Lisp
+  Statistics (see
+  https://groups.google.com/forum/?hl=en&fromgroups=#!topic/lisp-stat/MkyN1fiG9nA)
+
+
+

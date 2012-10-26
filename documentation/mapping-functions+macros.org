@@ -1,0 +1,19 @@
+#+title: Functions and macros for mapping and reducing vectors and arrays
+
+* Goals
+  Extend CL's iterating functions to all arrays that NL supports
+
+  
+* Mapping functions and macros for grids
+  
+  Link to [[http://github.com/mirkov/map-grid-utils-1.git][map-grid-utils]] (a utility definitely not
+  written with parallelizm in mind)
+
+* Walker macros
+
+  Sometimes we want to map over one or more grids to produce another
+  grid.  At other times we want to walk over a grid to execute an
+  action.  The first type is a functional type while he other not.
+
+  For example, a walker over a grid might be generating commands to
+  send grid elements to a file.

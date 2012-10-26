@@ -1,0 +1,119 @@
+#+title: Vectors and arrays
+
+* Generalization of arrays
+
+  *Note*: Also read the section on grids in Antik's documentation.
+  Much of what I say here derives from there.
+
+  NL provides new array types, and redefine array-related functions so
+  that they can operate on both CL and new array types.
+
+  Unless otherwise specified, all array functions operate the same
+  in NL as in CL.
+
+  NL extends CL's array types in two directions.
+
+** Numerical computation
+   For numerical computation, it defines foreign arrays and xarray.
+
+   It redefines CL array operators to allow operations on foreign
+   and x-arrays.  These arrays do not support adjustable, and
+   non-simple arrays.
+
+** Data and statistical analysis
+   For data and statistical analysis, NL creates new data-types
+   based on CL's arrays, such as frames (*Note*: this needs to be
+   confirmed or corrected and expanded).
+   
+* *DEFAULT-ARRAY-TYPE*
+  This variable can hold one of the following keywords: CL,
+  FOREIGN-ARRAY, or XARRAY.  It cannot be NIL.  It determines what
+  type of array the functions MAKE-ARRAY and VECTOR will return.
+
+* *DEFAULT-ELEMENT-TYPE*
+  This variable specifies the type of elements stored in an array.
+  These can be any of the 
+
+* Types
+
+  We introduce at the following types and their hierarchy:
+  - t
+    - array
+      - cl array
+      - numeric array
+	- foreign array
+	- xarray
+  
+* MAKE-ARRAY
+
+  *Note*: We replace Antik's GRID, MAKE-SIMPLE-GRID, MAKE-GRID with
+  MAKE-ARRAY.  
+  
+  MAKE-ARRAY returns a new array of type determined
+  by *DEFAULT-ARRAY-TYPE* or keyword ARRAY-TYPE.  
+  
+  When *DEFAULT-ARRAY-TYPE* is other than CL, only keyword arguments
+  ELEMENT-TYPE, INITIAL-ELEMENT, and INITIAL-CONTENTS are allowed.
+  If ELEMENT-TYPE is unspecified, the value of *DEFAULT-ELEMENT-TYPE*
+  is used.
+
+  INITIAL-CONTENTS is a nested sequence of sequences, which can be of
+  list or any array type.  Thus MAKE-ARRAY can be used to copy an
+  array of one type into another.
+
+  In addition, the first argument of MAKE-ARRAY, DIMENSIONS, can be an
+  array of any type (we call this the source array).  The new array
+  will have the same dimensions as this argument.  It may optionally
+  be filled by INITIAL-ELEMENTS or INITIAL-CONTENTS.  INITIAL-CONTENTS
+  must be congruent with the source array.  The elements and the array
+  type can be of any allowed type, and will be coerced accordingly.
+
+  For numeric arrays, array types cannot be upgraded.  The arrays
+  will always hold the specified type.  INITIAL-ELEMENTS or
+  INITIAL-CONTENTS will be coerced to the requested type. *Note*:
+  or should we signal an error if there is a mismatch between the
+  type of INITIAL-ELEMENTS/INITIAL-CONTENTS and ELEMENT-TYPE?
+
+  INITIAL-CONTENTS can also be a stream.  In that case, the array
+  elements are read from the stream.
+
+** Issues
+   How to deal with functions for SIMPLE and DISPLACED arrays when we
+   pass them a numeric array?  Should return T for simple and NIL for
+   displaced predicates, or should they signal an error or warning.
+
+
+* VECTOR
+  This function will return either a an array of rank one of type
+  specified by *DEFAULT-ARRAY-TYPE*.
+
+  The passed arguments will be coerced to the *DEFAULT-ELEMENT-TYPE*.
+
+
+* Sequence generating functions
+  A family of functions exists for creating grids populated by
+  sequences of numbers.  
+
+  Their general syntax is
+  #+BEGIN_EXAMPLE
+  make-sequence type dimensions &key min max array-type element-type  
+  #+END_EXAMPLE
+
+  Just as in MAKE-ARRAY, DIMENSIONS  can be a number, a list of
+  numbers, or another array.  In the last case, the resulting
+  sequence array will be congruent with the argument array.  But
+  the type will be determined by *DEFAULT-ARRAY-TYPE*.  
+
+  *Note*: The ability to provide an array as an argument replicates
+  the functionality of R's function ALIGN.
+
+  Example types are
+  - integers
+  - natural numbers
+  - linear sequence
+  - geometric sequence
+  - gaussian sequence
+  - triangle
+  - hat
+  - step
+  - etc

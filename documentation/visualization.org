@@ -1,0 +1,62 @@
+#+title: Data visualization
+
+* Aim
+
+  NL will provide visualization capabilities of relatively small
+  data-sets.  It does not deal with visualizations of extremely large
+  data-sets produced in massive simulations and experiments.  Instead
+  we focus on 2/3-D plots.
+
+  We *do not* write software for generating plots.  Instead we use
+  existing software, such as gnuplot, vecto, cl-cairo, xfig, etc.
+
+  We *do define* plot commands that function irrespective of the
+  actual software that generates the plot display or file.  Thus, we
+  will enable statement like this
+  #+BEGIN_EXAMPLE
+  (plot x y :title "foo" :x-label "Independent var" :y-label "Dependent var")
+  #+END_EXAMPLE
+
+  The initial back-end will be gnuplot, as it is available on all
+  three major architectures (Linux/Unix, Windows, and Apple).
+
+* Proposed architecture
+
+
+
+  The decoupling between the front and back-ends is accomplished by an
+  interface layer that uses Wilkinson's "Grammar of Graphics" (GOG).
+  GOG is a system of specifying the components of a plot (2 or 3D), or
+  several of them.  GOG does not deal with the generation of the plot
+  itself.
+
+  This interface layer will consist of at least three components:
+  CL-GRAMMAR-OF-GRAPHICS and CL-GRAMMAR-OF-GRAPHICS-BACK-END
+  CL-GRAMMAR-OF-GRAPHICS-GNUPLOT-INTERFACE.
+
+  The first component implements GOG in CL syntax.  The second
+  component provides generic functions and templates that are used for
+  programming the third component.  These two components will develop
+  together and feed-of each other.
+
+  This all sounds much more complicated than it actually is.  Again,
+  by way of example, the previous plot command, in the language of GOG is
+  #+BEGIN_SRC gog
+  stuff to be inserted here when I get a chance.
+  #+END_SRC
+
+  
+  The GOG back-end will translate this specification into a gnuplot
+  command
+  #+BEGIN_SRC gnuplot
+  set xtitle "Independent var"
+  set ytitle "Dependent var"
+  plot '-' title "foo"
+  ...  
+  unset xtitle
+  unset ytitle
+  #+END_SRC
+
+  With the GOG infrastructure in place, one developer can develop their
+  own plot syntax, and another can develop a different plot generator
+  routine by writing their back-end.

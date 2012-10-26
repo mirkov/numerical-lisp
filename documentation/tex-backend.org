@@ -1,0 +1,14 @@
+#+title: TeX back-end
+
+* Aim
+  NL will provide facilities for generating output in various TeX
+  formats.  Initially LaTeX, but if desired for ConTeXt and others.
+  For example, numbers with units can be generated in syntax of the
+  siunits package.  Tables can be formated for LaTeX or pgf-tables
+  And plots could formated for pgf plots.
+
+  
+
+* Programming structure
+  This back-end should be independent of NL.  If NL's data structures
+  are generic enough, the back-end will process them. 

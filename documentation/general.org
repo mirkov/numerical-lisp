@@ -1,0 +1,36 @@
+#+title: General notes about Numeric Lisp (NL)
+
+* Relation between NL, CL, and Antik
+
+  Much of NL derives from Antik.  In fact, a primary goal is to derive
+  NL from the Antik code base, and then for Antik to be re-built
+  around NL.  The hope is that this will allow other functionality to
+  relativly easily build both on top and along Antik's.
+
+  #+BEGIN_SRC ditaa :file images/antik+nl-layering-1.png
+       +---------+
+       |  Antik  |
+       +---------+
+
+       +------+
+       |  NL  |   
+       +------+
+
+       +------+	   +---------------+    +--------+	 	 
+       | Grid |    | Foreign Array |    | xarray |  
+       +------+    +---------------+    +--------+  
+  #+END_SRC
+
+  #+RESULTS:
+  [[file:images/antik+nl-layering-1.png]]
+
+
+* Packages
+
+  NL introduces the NL package.  This package redefines math, array
+  creation, and array access functions.  It also permanently shadows
+  the symbols CL:FIRST, CL:SECOND, ... CL:TENTH.  Some of those are
+  replaced by new symbols, (SECOND, THIRD, FIFTH, TENTH)
+
+  These namespaces can be used directly, in which case the shadowed
+  CL symbols can be accessed using the CL package designator.

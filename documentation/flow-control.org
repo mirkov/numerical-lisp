@@ -1,0 +1,12 @@
+#+title: Flow control macros
+
+* Flow control for  parallel computing
+
+  NL will strive to introduce control structures suited for parallel
+  computing.  In parallel computations, iterations such as DO and
+  LOOP are inherently serial (references, and verify).  Instead, one
+  needs to perform operations that are much more like MAP and REDUCE.
+
+  We want to provide a general interface, and several
+  back-ends for different architectures (GPU, MIC, Parallel cores).
+  

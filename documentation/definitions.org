@@ -1,0 +1,16 @@
+#+title: Definitions and conventions
+
+*Note
+
+ This section will impose consistency and uniformity across the
+ documentation.  I am very actively soliciting suggestions for
+ improvement on the namings and the definitions.
+
+* Congruent arrays
+  Two arrays are congruent if the have the same rank and have all
+  dimensions same.
+
+* Hyperspec references
+  We references chapters and sections in the hyperspec as
+  CLHS-X.Y.Z
+

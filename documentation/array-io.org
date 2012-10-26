@@ -1,0 +1,36 @@
+#+title: Array input/output
+
+* Reading arrays
+
+  One way of reading arrays is using MAKE-ARRAY with INITIAL-CONTENTS
+  as an input stream.
+
+  Another way is to use READ-ARRAY.  The read syntax will follow that
+  of CL's read routines:
+  #+BEGIN_EXAMPLE
+  read-array  file-format &key stream eof-error-p eof-value recursive-p
+  #+END_EXAMPLE
+  FILE-FORMAT is a symbol.  It can be for example CSV for a character
+  separated file.
+
+  *Note* I am loath of using keywords instead of keeping in sync with
+  with CL's optional arguments.  But I see no other way of allowing
+  the flexibility of reading files of different format.
+
+  *Note* Is it overkill and too Pearl-like to have more than one way
+  to read arrays?
+
+* Writing arrays
+
+  We shadow CL's ~WRITE-SEQUENCE~, adding another parameter to it,
+  and making it a generic function to accept NL's sequences as well.
+  #+BEGIN_EXAMPLE
+  write-sequence sequence stream &key start end file-type
+  #+END_EXAMPLE
+
+  The TYPE keyoword can specify the file type, such as CSV or GNUPLOT.
+
+  The keywords START and END can be integers or lists of length ~(rank
+  sequence)~.  The latter option will allow writing sub-blocks of
+  arrays.  The value NIL signifies either the start or end along the
+  corresponding dimension.

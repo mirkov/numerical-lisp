@@ -1,0 +1,25 @@
+#+title: NL library and package
+
+* Aim
+
+  Top-level definitions of NL.  Also the place to discuss the
+  shadowing of existing CL symbols
+
+
+
+* DEF-NL-PACKAGE macro
+
+  The NL package provides a CL-like package definition command via
+  ~def-nl-package~, whose syntax is identical to ~cl:defpackage~.
+  ~def-nl-package~ automatically shadows certain CL symbols and also
+  exports them.  The NL package also exports additional new symbols
+  related to macros for flow control, numerical analysis,
+  visualization.
+
+* Re-definition of existing CL symbols
+
+  Many math-related CL symbols are redefined to be able to handle
+  different types of arrays, and elements (such as numbers with
+  units attached to them).
+  
+
