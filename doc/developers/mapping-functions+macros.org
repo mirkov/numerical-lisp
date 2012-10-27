@@ -13,7 +13,29 @@
 
   Sometimes we want to map over one or more grids to produce another
   grid.  At other times we want to walk over a grid to execute an
-  action.  The first type is a functional type while he other not.
+  action.  The first type is a functional type while the other is not.
 
   For example, a walker over a grid might be generating commands to
   send grid elements to a file.
+
+** Tony comments:
+   
+   shouldn't we just say iterator, and generalize the tools and
+   framework in the iterate macro system?
+
+* Parallelism: execution and programmatic specification
+
+  Comment here about ways to walk and iterate around matrix and grid
+  structures. 
+
+* Other systems
+
+  R has the apply statements, which are in a sense, simplified
+  versions of the statements.  MATLAB and IDL have something similar,
+  need to understand and document these.
+
+  It will be critical to provide mental mappings from those systems to
+  this one, if we want to attract users.  The argument, "Mine is
+  better", just doesn't have buy-in.
+
+ 

@@ -2,13 +2,14 @@
 
 * Aim
   
-  A specification for a common-lisp-based language for numerical
-  simulation, computations, analysis, and visualization.  One of its
-  goals is to provide an environment and framework for including
-  currently disparate numerical libraries.
+  Numerical Lisp (NL) is a specification for a common-lisp-based
+  language for numerical simulation, computations, data analysis, and
+  presentation (numerical and visual).  One of its goals is to provide
+  an environment and framework for including currently disparate
+  numerical libraries.
 
   This environment will redefine (shadow) some of CL's symbols - thus
-  the name Numerical Lisp.  However, the shaddowed symbols will always
+  the name Numerical Lisp.  However, the shadowed symbols will always
   be accessible.  Most of the redefinitions will be augmentation of
   CL.  There will be very incompatibilities.  NL will also add and
   standardize large body of numerical, statistical, visualization, and
@@ -31,16 +32,16 @@
 
 * Project philosophy
 
-  NL will also massively study and borrow from R, Matlab, IDL,
-  Mathematica, Macsyma, Fortress, and others.  However, it will always
-  remain a lisp language.
+  NL will borrow from the design and user experiences from R, Matlab,
+  IDL, Mathematica, Macsyma, Fortress, and others.  However, it will
+  always remain a lisp language.
   
   To a some extent we will be defining a new domain specific language:
   data structures, control structures, and (to a much, much lesser
   extent) syntax.  With that in mind, should we consult lisp language
   gurus (Steele, Pitman, others)?
 
-  *Note* NL will still have the flavor of CL.
+  *Note* NL must still have the flavor of CL.
 
 * Project management
 

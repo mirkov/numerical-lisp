@@ -10,3 +10,16 @@
   We want to provide a general interface, and several
   back-ends for different architectures (GPU, MIC, Parallel cores).
   
+** Examples
+
+   From R, consider the approach of SNOW (Rossini, et al) for a common
+   UI, with multiple backends (MPI, PVM, sockets, SGE, linda-spaces).
+
+   From Common Lisp, consider lparallel and bordeaux-threads.  Need to
+   consider both tight (MPI and friends) and loose (SGE and friends)
+   infrastructure. 
+
+** Discussion and Proposal
+
+   (need to have a place to record agreement and disagreements for
+   moving forward).

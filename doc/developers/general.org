@@ -2,10 +2,11 @@
 
 * Relation between NL, CL, and Antik
 
-  Much of NL derives from Antik.  In fact, a primary goal is to derive
-  NL from the Antik code base, and then for Antik to be re-built
-  around NL.  The hope is that this will allow other functionality to
-  relativly easily build both on top and along Antik's.
+  Much of NL reference implementation will derive from Antik.  In
+  fact, a primary goal is to derive NL from the Antik code base, and
+  then for Antik to be re-built around NL.  The hope is that this will
+  allow other functionality to relativly easily build both on top and
+  along Antik's.
 
   #+BEGIN_SRC ditaa :file images/antik+nl-layering-1.png
        +---------+
@@ -24,6 +25,14 @@
   #+RESULTS:
   [[file:images/antik+nl-layering-1.png]]
 
+
+** Comments (TonyRossini)
+
+  One question that arises is whether having xarray-style matrix-like
+  manipulation would be worthwhile, or using affi and grid style
+  manipulation.  Since they originally derived from the same author,
+  they are similar in nature, but they also were designed at different
+  evolutionary stages of the author's programming practice.
 
 * Packages
 
