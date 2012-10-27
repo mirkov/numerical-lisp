@@ -1,0 +1,7 @@
+#+title: Documentation overview
+
+This directory contains three separate directories with documentation
+directed towards
+- developers
+- maintainers
+- users

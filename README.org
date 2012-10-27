@@ -3,15 +3,16 @@
 * Aim
   
   A specification for a common-lisp-based language for numerical
-  simulation, computations, analysis, and visualization.  Very little
-  initial coding.
+  simulation, computations, analysis, and visualization.  One of its
+  goals is to provide an environment and framework for including
+  currently disparate numerical libraries.
 
   This environment will redefine (shadow) some of CL's symbols - thus
   the name Numerical Lisp.  However, the shaddowed symbols will always
   be accessible.  Most of the redefinitions will be augmentation of
   CL.  There will be very incompatibilities.  NL will also add and
-  standardize large body of numerical, visualization, and io
-  capabilities.  
+  standardize large body of numerical, statistical, visualization, and
+  io capabilities.
 
   It will also define new functionality for numerical simulation,
   analysis and visualization.
@@ -19,13 +20,14 @@
   At its core, NL remains a CL, albeit an augmented one.
 
   This project will initially consists of my notes on how to proceed.
-  These notes should prompt others to think about these issues.
-  Eventually we will move on to coding.
+  These notes should prompt others to think about these issues and
+  contribute to the specification.  Eventually we will move on to
+  coding.
 
-  Currently, all the action is in the files in the ~documentation~
-  folder.  The files are currently text files in Emacs' org-mode.
-  Eventually, I will place publish the org-mode files as html files
-  and place them into the documentation directory.
+  Currently, all the action is in the documentation files in the
+  ~doc/developers~ folder (and their html counterparts in the
+  ~documentation~ folder).  I generate the text files in Emacs'
+  org-mode.  Then I publish them into html.
 
 * Project philosophy
 
@@ -67,12 +69,5 @@
                 also the software architecture
   - Phase III :: coding
 
-
-
-* History
-
-  I started this project based on recent discussions on Common Lisp
-  Statistics (see
-  https://groups.google.com/forum/?hl=en&fromgroups=#!topic/lisp-stat/MkyN1fiG9nA)
 
 

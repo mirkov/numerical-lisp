@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Vectors and arrays</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="title" content="Vectors and arrays"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2012-10-26T22:42-0400"/>
+<meta name="author" content="Mirko Vukovic"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012  Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">Vectors and arrays</h1>
+
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Generalization of arrays</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+  <b>Note</b>: Also read the section on grids in Antik's documentation.
+  Much of what I say here derives from there.
+</p>
+<p>
+  NL provides new array types, and redefine array-related functions so
+  that they can operate on both CL and new array types.
+</p>
+<p>
+  Unless otherwise specified, all array functions operate the same
+  in NL as in CL.
+</p>
+<p>
+  NL extends CL's array types in two directions.
+</p>
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1">Numerical computation</h3>
+<div class="outline-text-3" id="text-1-1">
+
+<p>   For numerical computation, it defines foreign arrays and xarray.
+</p>
+<p>
+   It redefines CL array operators to allow operations on foreign
+   and x-arrays.  These arrays do not support adjustable, and
+   non-simple arrays.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2">Data and statistical analysis</h3>
+<div class="outline-text-3" id="text-1-2">
+
+<p>   For data and statistical analysis, NL creates new data-types
+   based on CL's arrays, such as frames (<b>Note</b>: this needs to be
+   confirmed or corrected and expanded).
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><b>DEFAULT-ARRAY-TYPE</b></h2>
+<div class="outline-text-2" id="text-2">
+
+<p>  This variable can hold one of the following keywords: CL,
+  FOREIGN-ARRAY, or XARRAY.  It cannot be NIL.  It determines what
+  type of array the functions MAKE-ARRAY and VECTOR will return.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><b>DEFAULT-ELEMENT-TYPE</b></h2>
+<div class="outline-text-2" id="text-3">
+
+<p>  This variable specifies the type of elements stored in an array.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">Types</h2>
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+  We introduce at the following types and their hierarchy:
+</p><ul>
+<li>t
+<ul>
+<li>array
+<ul>
+<li>cl array
+</li>
+<li>numeric array
+<ul>
+<li>foreign array
+</li>
+<li>xarray
+</li>
+</ul>
+
+</li>
+</ul>
+
+</li>
+</ul>
+
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">MAKE-ARRAY</h2>
+<div class="outline-text-2" id="text-5">
+
+
+<p>
+  <b>Note</b>: We replace Antik's GRID, MAKE-SIMPLE-GRID, MAKE-GRID with
+  MAKE-ARRAY.  
+</p>
+<p>  
+  MAKE-ARRAY returns a new array of type determined
+  by <code>*DEFAULT-ARRAY-TYPE*</code> or keyword ARRAY-TYPE.  
+</p>
+<p>  
+  When <code>*DEFAULT-ARRAY-TYPE*</code> is other than CL, only keyword arguments
+  ELEMENT-TYPE, INITIAL-ELEMENT, and INITIAL-CONTENTS are allowed.
+  If ELEMENT-TYPE is unspecified, the value of <code>*DEFAULT-ELEMENT-TYPE*</code>
+  is used.
+</p>
+<p>
+  INITIAL-CONTENTS is a nested sequence of sequences, which can be of
+  list or any array type.  Thus MAKE-ARRAY can be used to copy an
+  array of one type into another.
+</p>
+<p>
+  In addition, the first argument of MAKE-ARRAY, DIMENSIONS, can be an
+  array of any type (we call this the source array).  The new array
+  will have the same dimensions as this argument.  It may optionally
+  be filled by INITIAL-ELEMENTS or INITIAL-CONTENTS.  INITIAL-CONTENTS
+  must be congruent with the source array.  The elements and the array
+  type can be of any allowed type, and will be coerced accordingly.
+</p>
+<p>
+  For numeric arrays, array types cannot be upgraded.  The arrays
+  will always hold the specified type.  INITIAL-ELEMENTS or
+  INITIAL-CONTENTS will be coerced to the requested type. <b>Note</b>:
+  or should we signal an error if there is a mismatch between the
+  type of INITIAL-ELEMENTS/INITIAL-CONTENTS and ELEMENT-TYPE?
+</p>
+<p>
+  INITIAL-CONTENTS can also be a stream.  In that case, the array
+  elements are read from the stream.
+</p>
+
+</div>
+
+<div id="outline-container-5-1" class="outline-3">
+<h3 id="sec-5-1">Issues</h3>
+<div class="outline-text-3" id="text-5-1">
+
+<p>   How to deal with functions for SIMPLE and DISPLACED arrays when we
+   pass them a numeric array?  Should return T for simple and NIL for
+   displaced predicates, or should they signal an error or warning.
+</p>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">VECTOR</h2>
+<div class="outline-text-2" id="text-6">
+
+<p>  This function will return either a an array of rank one of type
+  specified by <code>*DEFAULT-ARRAY-TYPE*</code>.
+</p>
+<p>
+  The passed arguments will be coerced to the <code>*DEFAULT-ELEMENT-TYPE*</code>.
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7">Sequence generating functions</h2>
+<div class="outline-text-2" id="text-7">
+
+<p>  A family of functions exists for creating grids populated by
+  sequences of numbers.  
+</p>
+<p>
+  Their general syntax is
+</p>
+
+
+<pre class="example">make-sequence type dimensions &amp;key min max array-type element-type  
+</pre>
+
+
+<p>
+  Just as in MAKE-ARRAY, DIMENSIONS  can be a number, a list of
+  numbers, or another array.  In the last case, the resulting
+  sequence array will be congruent with the argument array.  But
+  the type will be determined by <code>*DEFAULT-ARRAY-TYPE*</code>.  
+</p>
+<p>
+  <b>Note</b>: The ability to provide an array as an argument replicates
+  the functionality of R's function ALIGN.
+</p>
+<p>
+  Example types are
+</p><ul>
+<li>integers
+</li>
+<li>natural numbers
+</li>
+<li>linear sequence
+</li>
+<li>geometric sequence
+</li>
+<li>gaussian sequence
+</li>
+<li>triangle
+</li>
+<li>hat
+</li>
+<li>step
+</li>
+<li>etc
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2012-10-26T22:42-0400</p>
+<p class="author">Author: Mirko Vukovic</p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.2 with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>
