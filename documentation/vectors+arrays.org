@@ -32,7 +32,6 @@
 
 * *DEFAULT-ELEMENT-TYPE*
   This variable specifies the type of elements stored in an array.
-  These can be any of the 
 
 * Types
 
@@ -50,11 +49,11 @@
   MAKE-ARRAY.  
   
   MAKE-ARRAY returns a new array of type determined
-  by *DEFAULT-ARRAY-TYPE* or keyword ARRAY-TYPE.  
+  by ~*DEFAULT-ARRAY-TYPE*~ or keyword ARRAY-TYPE.  
   
-  When *DEFAULT-ARRAY-TYPE* is other than CL, only keyword arguments
+  When ~*DEFAULT-ARRAY-TYPE*~ is other than CL, only keyword arguments
   ELEMENT-TYPE, INITIAL-ELEMENT, and INITIAL-CONTENTS are allowed.
-  If ELEMENT-TYPE is unspecified, the value of *DEFAULT-ELEMENT-TYPE*
+  If ELEMENT-TYPE is unspecified, the value of ~*DEFAULT-ELEMENT-TYPE*~
   is used.
 
   INITIAL-CONTENTS is a nested sequence of sequences, which can be of
@@ -85,9 +84,9 @@
 
 * VECTOR
   This function will return either a an array of rank one of type
-  specified by *DEFAULT-ARRAY-TYPE*.
+  specified by ~*DEFAULT-ARRAY-TYPE*~.
 
-  The passed arguments will be coerced to the *DEFAULT-ELEMENT-TYPE*.
+  The passed arguments will be coerced to the ~*DEFAULT-ELEMENT-TYPE*~.
 
 
 * Sequence generating functions
@@ -102,7 +101,7 @@
   Just as in MAKE-ARRAY, DIMENSIONS  can be a number, a list of
   numbers, or another array.  In the last case, the resulting
   sequence array will be congruent with the argument array.  But
-  the type will be determined by *DEFAULT-ARRAY-TYPE*.  
+  the type will be determined by ~*DEFAULT-ARRAY-TYPE*~.  
 
   *Note*: The ability to provide an array as an argument replicates
   the functionality of R's function ALIGN.

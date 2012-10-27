@@ -10,5 +10,9 @@
   
 
 * Programming structure
-  This back-end should be independent of NL.  If NL's data structures
-  are generic enough, the back-end will process them. 
+  A good part of the back-end should be independent of NL.  If NL's
+  data structures are generic enough, the back-end will process them.
+
+  With that in mind, there could be a CL library/package for generating
+  LaTeX tables, with hooks for implementing the same functionality for
+  NL's data structures

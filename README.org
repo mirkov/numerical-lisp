@@ -8,10 +8,15 @@
 
   This environment will redefine (shadow) some of CL's symbols - thus
   the name Numerical Lisp.  However, the shaddowed symbols will always
-  be accessible.
+  be accessible.  Most of the redefinitions will be augmentation of
+  CL.  There will be very incompatibilities.  NL will also add and
+  standardize large body of numerical, visualization, and io
+  capabilities.  
 
   It will also define new functionality for numerical simulation,
   analysis and visualization.
+
+  At its core, NL remains a CL, albeit an augmented one.
 
   This project will initially consists of my notes on how to proceed.
   These notes should prompt others to think about these issues.
@@ -44,11 +49,30 @@
   handed over to someone that can put it more effort and energy into
   it.
 
+* Development plan
+
+  Development will proceed in three phases.  In practice there will be
+  overlap between phases I and II and phases II and III.  It is very
+  unlikely that there will be any phase III activity until phase I is
+  substantially complete.
+
+
+  - Phase I :: development of general guidelines and software architecture
+
+	       In this phase we want to establish general ideas and
+               how they will be implemented
+  - Phase II :: detailed user interface development and software architecture
+
+		In this phase we will firm up the user interface, and
+                also the software architecture
+  - Phase III :: coding
+
+
+
 * History
 
   I started this project based on recent discussions on Common Lisp
   Statistics (see
   https://groups.google.com/forum/?hl=en&fromgroups=#!topic/lisp-stat/MkyN1fiG9nA)
-
 
 

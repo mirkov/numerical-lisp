@@ -10,3 +10,5 @@
 - [[file:visualization.org][Data visualization]]
 - [[file:tex-backend.org][TeX back-end]]
 - [[file:array-io.org][Array I/O]]
+- Numerical analysis -- remains to be written
+- Statistical analysis -- remains to be written
