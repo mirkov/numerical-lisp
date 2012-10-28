@@ -1,0 +1,5 @@
+2012-10-28  Mirko Vukovic  <mirko.vukovic@us.tel.com>
+
+	* general.org: Added section on modified CL functions.  Specified
+	that read functions will be incompatible with CL
+

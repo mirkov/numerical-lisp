@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="General notes about Numeric Lisp (NL)"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2012-10-26T22:42-0400"/>
+<meta name="generated" content="2012-10-28T15:24-0400"/>
 <meta name="author" content="Mirko Vukovic"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -124,10 +124,11 @@ for the JavaScript code in this tag.
 
 
 <p>
-  Much of NL derives from Antik.  In fact, a primary goal is to derive
-  NL from the Antik code base, and then for Antik to be re-built
-  around NL.  The hope is that this will allow other functionality to
-  relativly easily build both on top and along Antik's.
+  Much of NL reference implementation will derive from Antik.  In
+  fact, a primary goal is to derive NL from the Antik code base, and
+  then for Antik to be re-built around NL.  The hope is that this will
+  allow other functionality to relativly easily build both on top and
+  along Antik's.
 </p>
 
 
@@ -135,6 +136,22 @@ for the JavaScript code in this tag.
   <img src="images/antik+nl-layering-1.png"  alt="images/antik+nl-layering-1.png" />
 </p>
 
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1">Comments (TonyRossini)</h3>
+<div class="outline-text-3" id="text-1-1">
+
+
+<p>
+  One question that arises is whether having xarray-style matrix-like
+  manipulation would be worthwhile, or using affi and grid style
+  manipulation.  Since they originally derived from the same author,
+  they are similar in nature, but they also were designed at different
+  evolutionary stages of the author's programming practice.
+</p>
+</div>
 </div>
 
 </div>
@@ -153,12 +170,56 @@ for the JavaScript code in this tag.
 <p>
   These namespaces can be used directly, in which case the shadowed
   CL symbols can be accessed using the CL package designator.
+</p>
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Summary of redefined CL functions</h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+  Some functions are redefined in a way that breaks their
+  compatibility with CL, while other simply extend CL's existing
+  capability.
+</p>
+
+
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1"><code>make-array</code> has additional keywords and functionality</h3>
+<div class="outline-text-3" id="text-3-1">
+
+
+<p>
+   See documentation in relevant file
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2"><code>read...</code> use keywords instead of <code>&amp;rest</code></h3>
+<div class="outline-text-3" id="text-3-2">
+
+
+<p>
+   All CL's <code>read</code> functions use keywords <code>:stream</code>, <code>:eof-error-p</code>,
+   <code>:eof-value</code>, <code>:recursive-p</code>
+</p>
+<p>
+   All of NL's <code>read</code> function also use these keywords.
 </p></div>
+</div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2012-10-26T22:42-0400</p>
+<p class="date">Date: 2012-10-28T15:24-0400</p>
 <p class="author">Author: Mirko Vukovic</p>
 <p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.2 with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

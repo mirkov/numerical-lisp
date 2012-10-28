@@ -43,3 +43,22 @@
 
   These namespaces can be used directly, in which case the shadowed
   CL symbols can be accessed using the CL package designator.
+
+
+* Summary of redefined CL functions
+
+  Some functions are redefined in a way that breaks their
+  compatibility with CL, while other simply extend CL's existing
+  capability.
+  
+
+** ~make-array~ has additional keywords and functionality
+
+   See documentation in relevant file
+
+** ~read...~ use keywords instead of ~&rest~
+
+   All CL's ~read~ functions use keywords ~:stream~, ~:eof-error-p~,
+   ~:eof-value~, ~:recursive-p~
+
+   All of NL's ~read~ function also use these keywords.
